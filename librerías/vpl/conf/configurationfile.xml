@@ -1,0 +1,34 @@
+<?xml version="1.0"encoding="UTF-8" standalone="yes"?>
+<ns2:submissionXml xmlns:ns2="es.upm.dit.tfm.grad">
+	<student>Student indentification</student>
+	<activity>Activity indentification</activity>
+	<submission>Submission indentification</submission>
+	<base-grade>100</base-grade>
+	<final-grade>0.0</final-grade>
+	<general-comment/>
+	<detailed-comments/>
+	<submodules>
+		<submodule>
+			<program-name>es.upm.dit.tfm.grad.sub.CompilationGradingSubmodule</program-name>
+			<description>CompilationSubmodule</description>
+			<program-parameters/>
+			<factor>40.00</factor>
+			<action-file-list>Corrector.java</action-file-list>
+			<executed>no</executed>
+			<state>failed</state>
+			<grade>0.0</grade>
+			<comments/>
+		</submodule>
+		<submodule>
+			<program-name>es.upm.dit.tfm.grad.sub.TestingGradingSubmodule</program-name>
+			<description>TestingSubmodule</description>
+			<program-parameters>Corrector.java</program-parameters>
+			<factor>60.00</factor>
+			<action-file-list>Corrector</action-file-list>
+			<executed>no</executed>
+			<state>failed</state>
+			<grade>0.0</grade>
+			<comments/>
+		</submodule>
+	</submodules>
+</ns2:submissionXml>
