@@ -1,0 +1,272 @@
+<problem>
+  <text>
+    <p>Escribir un programa en Java que cumpla con:</p>
+  </text>
+  <coderesponse queuename="java-queue">
+    <textbox mode="java" tabsize="2"/>
+    <codeparam>
+      <initial_display>
+*CODIGO
+/**
+ * Clase para calcular las calorias quemadas 
+ * durante la realizacion de un ejercicio
+ * 
+ * @author Jose M. del Alamo
+ */
+public class CalculadorCaloriasQuemadas {
+
+	private static final double FACTOR_CARRERA = 0.240;
+	private static final double FACTOR_CICLISMO = 0.132;
+		
+	/**
+	 * Este metodo calcula la cantidad de calorias quemadas
+	 * durante una carrera de una duracion dada.
+	 * @param minutos Duracion del ejercicio, en minutos
+	 * @param peso Peso del deportista, en kilos
+	 * @return Cantidad de calorias quemadas
+	 */
+	public int correr(int minutos, float peso){
+		int caloriasQuemadas;
+		caloriasQuemadas = (int) (FACTOR_CARRERA * peso * minutos);
+
+		return caloriasQuemadas;
+	}
+	
+	/**
+	 * Este metodo calcula la cantidad de calorias quemadas
+	 * durante un recorrido en bicicleta de una duracion dada.
+	 * @param minutos Duracion del ejercicio, en minutos
+	 * @param peso Peso del deportista, en kilos
+	 * @return Cantidad de calorias quemadas
+	 */
+	public int hacerBicicleta(int minutos, float peso){
+		int caloriasQuemadas;
+		caloriasQuemadas = (int) (FACTOR_CICLISMO * peso * minutos);
+
+		return caloriasQuemadas;
+	}
+}
+
+*CODIGO
+/**
+ * Clase que representa los datos y actividad de un deportista
+ * 
+ * @author Jose M. del Alamo
+ */
+public class Deportista {
+
+	private float peso;
+	private int edad;
+	private int estatura;
+	private boolean mujer;
+	private int caloriasDiarias;
+	
+	/**
+	 * Constructor por defecto. Fija los valores por defecto para un Deportista.
+	 */
+	public Deportista(){
+		peso = 70;
+		edad = 34;
+		estatura = 174;
+		mujer = false;
+		caloriasDiarias = 0;
+	}
+	
+	/**
+	 * Constructor de la clase. Crea un objeto Deportista en funcion de los argumentos.
+	 * @param peso El peso, en kg, del deportista.
+	 * @param mujer Indica si el Deportista es mujer (true) u hombre (false). 
+	 * @param edad Los anos del Deportista.
+	 * @param estatura La altura en centimetros.
+	 */
+	public Deportista(float peso, boolean mujer, int edad, int estatura) {
+		this.peso = peso;
+		this.edad = edad;
+		this.estatura = estatura;
+		this.mujer = false;
+		caloriasDiarias = 0;
+	}
+	
+	/** Devuelve la edad actual del deportista
+	 * @return La edad del deportista.
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/** Modifica la edad del Deportista
+	 * @param edad Los anos del Deportista
+	 */
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	/** Devuelve la estatura actual del deportista
+	 * @return La altura en centimetros.
+	 */
+	public int getEstatura() {
+		return estatura;
+	}
+
+	/** Modifica la estatura del Deportista
+	 * @param estatura La altura en centimetros.
+	 */
+	public void setEstatura(int estatura) {
+		this.estatura = estatura;
+	}
+
+	/** Devuelve el sexo actual del deportista
+	 * @return true si es mujer. false si es hombre.
+	 */
+	public boolean getMujer(){
+		return mujer;
+	}
+	
+	/** Modifica el sexo del Deportista
+	 * @param mujer true si es una mujer y false si es un hombre.
+	 */
+	public void setMujer(boolean mujer) {
+		this.mujer = mujer;
+	}
+
+	/** Devuelve el peso actual del deportista
+	 * @return El peso del deportista
+	 */
+	public float getPeso(){
+		return peso;
+	}
+	
+	/**
+	 * Modifica el peso actual del deportista
+	 * @param nuevoPeso El peso actual del deportista
+	 */
+	public void setPeso(float nuevoPeso){
+		peso = nuevoPeso;
+	}
+	
+	/**
+	 * Devuelve el numero de calorias quemadas por este 
+	 * deportista al correr
+	 * @param minutos Duracion del ejercicio
+	 * @return Cantidad de calorias quemadas
+	 */
+	public void practicarCarrera(int minutos){
+		CalculadorCaloriasQuemadas ccq = new CalculadorCaloriasQuemadas();
+		caloriasDiarias -= ccq.correr(minutos, peso);
+	}
+	
+	/**
+	 * Devuelve el numero de calorias quemadas por este deportista al 
+	 * practicar ciclismo
+	 * @param minutos Duracion del ejercicio
+	 * @return Cantidad de calorias quemadas
+	 */
+	public void practicarCiclismo(int minutos){
+		CalculadorCaloriasQuemadas ccq = new CalculadorCaloriasQuemadas();
+		caloriasDiarias -= ccq.hacerBicicleta(minutos, peso);
+	}
+	
+	/**
+	 * Calcula las calorias que el Deportista necesita para sobrevivir.
+	 * @return Las calorias necesarias para mantener el metabolismo basal del Deportista.
+	 */
+	public int calcularMetabolismoBasal(){
+		double cal = 0;
+		if(mujer)
+			cal = 655.0955 + (9.463*peso) + (1.8496*estatura) - (4.6756*edad);
+		//Si es mujer
+		else
+			cal = 66.473 + (13.752*peso) + (5.0033*estatura) - (6.755*edad);	
+		return (int) cal;
+	}
+	
+	/**
+	 * Ingiere calorias de un alimento.
+	 * @param calorias Las calorias ingeridas por el Deportista.
+	 */
+	public void comer(int calorias){
+		caloriasDiarias += calorias;
+	}
+	
+	/**
+	 * Ingiere calorias de varios alimentos
+	 * @param calorias Array de n posiciones con las calorias de cada alimento consumido en una comida. Por ejemplo,
+	 * en una comida con tres platos, el array tendria 3 posiciones [primer_plato, segundo_plato, postre].
+	 */
+	public void comer(int[] calorias){
+		for(int i : calorias)
+			caloriasDiarias += i;
+	}
+	
+	/**
+	 * Modifica el peso del Deportista en funcion de las calorias quemadas y consumidas durante el dia.
+	 * @param true si el Deportista ha adelgazado, false en caso contrario.
+	 */
+	public boolean dormir(){
+		float resumenDiario = caloriasDiarias - calcularMetabolismoBasal();
+		//El peso se modifica con las calorias que han sobrado/faltado al final del dia (9 gramos por 10 calorias)
+		peso += resumenDiario*9/10000;
+		
+		boolean adelgaza = true;
+		if(resumenDiario >= 0)
+			adelgaza = false;
+		
+		caloriasDiarias = 0;	//Iniciamos el contador de calorias del dia
+		
+		return adelgaza;
+	}
+	
+	/**
+	 * Este metodo imprime en pantalla el peso del deportista
+	 */
+	public void imprimirPeso(){
+		System.out.println("Peso "+peso+" kg.");
+	}
+	
+	
+}
+
+*CODIGO
+public class PruebaDeportista {
+		
+	public static void main(String[] args) {
+			
+		//Creo un deportista de 70 kilos, hombre, 34 anos y 1.75 de altura
+		Deportista deportista = new Deportista(100, false, 34, 175);
+
+		//El Deportista desayuna una galleta de chocolate (150 calorias)
+		deportista.comer(100);
+		//Almuerza una napolitana de crema (325 cal) y un chocolate calentito (200 cal)
+		int almuerzo [] = {325, 200};
+		deportista.comer(almuerzo);
+		//Come un cocido madrileno (sopa (139 cal), garbanzos (552 cal), y helado (190 cal)) 
+		int comida [] = {139, 552, 190};
+		deportista.comer(comida);
+		//Merienda una naranja (36 cal)
+		deportista.comer(36);
+		//Cena una  hamburguesa (350 cal) con un refresco (200 cal) y racion de patatas (400 cal)
+		int cena [] = {350, 200, 400};
+		deportista.comer(cena);
+
+		//Se va a la cama
+		deportista.practicarCiclismo(60);
+		deportista.practicarCarrera(60);
+		boolean adelgaza = deportista.dormir();
+
+		//Me levanto y me peso
+		System.out.println("Mi peso a la maniana siguiente es "+deportista.getPeso());
+		System.out.println("He adelgazado? "+adelgaza);
+	}
+}
+			</initial_display>
+      <answer_display>
+Mi peso a la maniana siguiente es 98.3557
+He adelgazado? true
+			</answer_display>
+      <grader_payload>
+{"problem_name": "Practica1,CalculadorCaloriasQuemadas.java,Deportista.java,PruebaDeportista.java"}
+			</grader_payload>
+    </codeparam>
+  </coderesponse>
+</problem>
+
