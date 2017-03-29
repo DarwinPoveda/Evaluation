@@ -8,12 +8,23 @@
    <general-comment/>
    <detailed-comments/>
    <submodules>
+         <submodule>
+         <program-name>es.upm.dit.tfm.grad.sub.CheckGradingSubmodule</program-name>
+         <description>CheckGradingSubmodule</description>
+         <program-parameters></program-parameters>
+         <factor>10.00</factor>
+         <action-file-list>Practica1/PruebaDeportista.java,Practica1/Deportista.java,Practica1/CalculadorCaloriasQuemadas.java</action-file-list>
+         <executed>no</executed>
+         <state>failed</state>
+         <grade>0.0</grade>
+         <comments />
+      </submodule>      
 	 <submodule>
          <program-name>es.upm.dit.tfm.grad.sub.CompilationGradingSubmodule</program-name>
          <description>CompilationSubmodule</description>
          <program-parameters />
          <factor>30.00</factor>
-         <action-file-list>p2/PruebaDeportista.java,p2/Deportista.java,p2/CalculadorCaloriasQuemadas.java</action-file-list>
+         <action-file-list>Practica1/PruebaDeportista.java,Practica1/Deportista.java,Practica1/CalculadorCaloriasQuemadas.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -23,8 +34,8 @@
          <program-name>es.upm.dit.tfm.grad.sub.TestingGradingSubmodule</program-name>
          <description>TestingSubmodule</description>
          <program-parameters>Mi peso a la maniana siguiente es 98.3557;He adelgazado? true</program-parameters>
-         <factor>60.00</factor>
-         <action-file-list>p2/PruebaDeportista,p2/Deportista,p2/CalculadorCaloriasQuemadas</action-file-list>
+         <factor>50.00</factor>
+         <action-file-list>Practica1/PruebaDeportista</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -35,7 +46,7 @@
          <description>StyleGradingSubmodule</description>
          <program-parameters>librerías/vpl/libs/checkstyle.jar;javadoc.xml;1;8</program-parameters>
          <factor>10.00</factor>
-         <action-file-list>p2/PruebaDeportista.java</action-file-list>
+         <action-file-list>Practica1/PruebaDeportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
