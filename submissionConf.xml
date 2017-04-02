@@ -11,9 +11,9 @@
        <submodule>
          <program-name>es.upm.dit.tfm.grad.sub.CheckGradingSubmodule</program-name>
          <description>CheckGradingSubmodule</description>
-         <program-parameters></program-parameters>
+         <program-parameters>practica2.zip</program-parameters>
          <factor>10.00</factor>
-         <action-file-list>Deber1/Program.java</action-file-list>
+         <action-file-list>es/upm/dit/fprg/p2/CalculadorCaloriasQuemadas.java,es/upm/dit/fprg/p2/Deportista.java,es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -24,7 +24,7 @@
          <description>CompilationSubmodule</description>
          <program-parameters />
          <factor>30.00</factor>
-         <action-file-list>Deber1/Program.java</action-file-list>
+         <action-file-list>es/upm/dit/fprg/p2/CalculadorCaloriasQuemadas.java,es/upm/dit/fprg/p2/Deportista.java,es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -35,7 +35,7 @@
          <description>TestingSubmodule</description>
          <program-parameters>Corrector.java</program-parameters>
          <factor>50.00</factor>
-         <action-file-list>CorrectorDeber1.java,CorrectorDeber1</action-file-list>
+         <action-file-list>Corrector.java,Corrector</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -44,9 +44,9 @@
 	<submodule>
          <program-name>es.upm.dit.tfm.grad.sub.StyleGradingSubmodule</program-name>
          <description>StyleGradingSubmodule</description>
-         <program-parameters>librerías/vpl/libs/checkstyle.jar;javadoc.xml;1;1</program-parameters>
+         <program-parameters>librerías/vpl/libs/checkstyle.jar;javadoc.xml;1;8</program-parameters>
          <factor>10.00</factor>
-         <action-file-list>Deber1/Program.java</action-file-list>
+         <action-file-list>es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
