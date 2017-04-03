@@ -11,7 +11,7 @@
        <submodule>
          <program-name>es.upm.dit.tfm.grad.sub.CheckGradingSubmodule</program-name>
          <description>CheckGradingSubmodule</description>
-         <program-parameters>practica2.zip</program-parameters>
+         <program-parameters></program-parameters>
          <factor>10.00</factor>
          <action-file-list>Practica1/CalculadorCaloriasQuemadas.java,Practica1/Deportista.java</action-file-list>
          <executed>no</executed>

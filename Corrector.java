@@ -13,7 +13,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
-import es.upm.dit.fprg.p2.Deportista;
+import Practica1.Deportista;
 
 public class Corrector {
 
