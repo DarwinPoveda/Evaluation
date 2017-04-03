@@ -13,7 +13,7 @@
          <description>CheckGradingSubmodule</description>
          <program-parameters>practica2.zip</program-parameters>
          <factor>10.00</factor>
-         <action-file-list>es/upm/dit/fprg/p2/CalculadorCaloriasQuemadas.java,es/upm/dit/fprg/p2/Deportista.java,es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
+         <action-file-list>Practica1/CalculadorCaloriasQuemadas.java,Practica1/Deportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -24,7 +24,7 @@
          <description>CompilationSubmodule</description>
          <program-parameters />
          <factor>30.00</factor>
-         <action-file-list>es/upm/dit/fprg/p2/CalculadorCaloriasQuemadas.java,es/upm/dit/fprg/p2/Deportista.java,es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
+         <action-file-list>Practica1/CalculadorCaloriasQuemadas.java,Practica1/Deportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
@@ -44,9 +44,9 @@
 	<submodule>
          <program-name>es.upm.dit.tfm.grad.sub.StyleGradingSubmodule</program-name>
          <description>StyleGradingSubmodule</description>
-         <program-parameters>librerías/vpl/libs/checkstyle.jar;javadoc.xml;1;8</program-parameters>
+         <program-parameters>librerías/vpl/libs/checkstyle.jar;javadoc.xml;28;18</program-parameters>
          <factor>10.00</factor>
-         <action-file-list>es/upm/dit/fprg/p2/PruebaDeportista.java</action-file-list>
+         <action-file-list>Practica1/Deportista.java</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
