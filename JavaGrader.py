@@ -22,7 +22,7 @@ def grade(problem_name, student_response):
     #Write all the java files
     for i in range(len(program)-1):
         problem_names = problem_name["problem_name"].split(",")
-        program_name = "/edx/java-grader/{0}/{1}".format(problem_names[0], problem_names[i+1])
+        program_name = "{0}/{1}".format(problem_names[0], problem_names[i+1])
 	source_file = open(program_name, 'w')
         source_file.write(program[i+1])
         source_file.close()
