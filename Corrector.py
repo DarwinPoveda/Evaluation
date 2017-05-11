@@ -19,8 +19,9 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 def grade(problem_name, student_response):
     #Write the file Corrector.java
     program_name = "/edx/Evaluation/{0}".format(problem_name["problem_name"])
+    program_code = student_response.encode('utf-8')
     source_file = open(program_name, 'w')
-    source_file.write(student_response)
+    source_file.write(program_code)
     source_file.close()
     result = {}
     #Inicializate the parameters for the result

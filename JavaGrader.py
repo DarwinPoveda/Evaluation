@@ -23,8 +23,9 @@ def grade(problem_name, student_response):
     problem_names = problem_name["problem_name"].split(",")
     for i in range(len(program)-1):
         program_name = "/edx/Evaluation/{0}".format(problem_names[i])
+        program_code = program[i+1].encode('utf-8')
 	source_file = open(program_name, 'w')
-        source_file.write(program[i+1])
+        source_file.write(program_code)
         source_file.close()
     result = {}
     #Run the External Grader with the parameters in file submissionConf.xml
@@ -37,6 +38,10 @@ def grade(problem_name, student_response):
     score = float(out1[0])/100
     result.update({"score": score, "msg": message})
     result = process_result(result)
+    #remove student's program from disk
+    for i in range(len(program)-1):
+        program_name = "/edx/Evaluation/{0}".format(problem_names[i])
+        os.remove(program_name)
     return result
 
 def process_result(result):
