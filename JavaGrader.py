@@ -28,13 +28,13 @@ def grade(problem_name, student_response):
     result = {}
     p = subprocess.Popen(["java", "-jar", "Evaluation.jar", "submissionConf.xml"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    out = out.split("Grade :=>>","Comment :=>>")
-    print out
+    out = out.split("Grade :=>>")
     out2 = out[0].split('\n')
     out1 = out[1].split('\n')
-    correct = True
-    message = "\n".join(out2)
-    score=float(out1[0])/100
+    #message = "".join(out2)
+    message=out[0]
+    score = float(out1[0])/100
+    print message, score 
     result.update({"score": score, "msg": message})
     result = process_result(result)
 
