@@ -17,7 +17,7 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         self.wfile.write(result)
 
 def grade(problem_name, student_response):
-j    #Split name of files
+    #Split name of files
     program=student_response.split("*Codigo")
     #Write all the java files
     problem_names = problem_name["problem_name"].split(",")
