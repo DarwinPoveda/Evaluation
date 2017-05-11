@@ -1,6 +1,7 @@
 import BaseHTTPServer
 import json
 import subprocess
+import os
 import re
 
 class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -18,7 +19,6 @@ def grade(problem_name, student_response):
 
     #Write the file SubmissionConf.xml
     program_name = problem_name["problem_name"]
-    print program_name, student_response
     source_file = open(program_name, 'w')
     source_file.write(student_response)
     source_file.close()
