@@ -44,7 +44,6 @@ def get_info(body_content):
     json_object = json.loads(json_object["xqueue_body"])
     problem_name = json.loads(json_object["grader_payload"])
     student_response = json_object["student_response"]
-    print student_response
     return problem_name, student_response
 
 if __name__ == "__main__":

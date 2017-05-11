@@ -31,8 +31,8 @@ def grade(problem_name, student_response):
     out = out.split("Grade :=>>")
     out2 = out[0].split('\n')
     out1 = out[1].split('\n')
-    message = "".join(out2).encode('utf-8')
-    #message=out[0].encode('utf-8')
+    #message = "".join(out2).encode('utf-8')
+    message=out[0].encode('utf-8')
     score = float(out1[0])/100
     print message, score 
     result.update({"score": score, "msg": message})
