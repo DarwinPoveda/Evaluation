@@ -23,6 +23,7 @@ def grade(problem_name, student_response):
     for i in range(len(program)-1):
         program_name = "{0}".format(problem_name["problem_name"])
 	source_file = open(program_name, 'w')
+        print program_name, program[i+1]
         source_file.write(program[i+1])
         source_file.close()
     result = {}
