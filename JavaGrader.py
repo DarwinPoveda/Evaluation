@@ -66,6 +66,6 @@ def get_info(body_content):
 if __name__ == "__main__":
 
     server = BaseHTTPServer.HTTPServer(("localhost", 1710), HTTPHandler)
-    print 'Starting server on port 1710...'
+    print 'Starting JavaGrader server on port 1710...'
     server.serve_forever()
 
