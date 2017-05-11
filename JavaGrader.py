@@ -38,10 +38,10 @@ def grade(problem_name, student_response):
     result = process_result(result)
 
     #remove student's program from disk
-    for i in range(len(program)-1):
-        program_name = "{0}".format(problem_name["problem_name"])
-        os.remove(program_name)
-    return result
+    #for i in range(len(program)-1):
+    #    program_name = "{0}".format(problem_name["problem_name"])
+    #    os.remove(program_name)
+    #return result
 
 def process_result(result):
     score = result["score"]
