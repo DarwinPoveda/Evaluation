@@ -23,17 +23,17 @@ def grade(problem_name, student_response):
     for i in range(len(program)-1):
         program_name = "/edx/Evaluation/{0}".format(problem_name["problem_name"])
 	source_file = open(program_name, 'w')
-        print program_name, program[i+1]
         source_file.write(program[i+1])
         source_file.close()
     result = {}
     p = subprocess.Popen(["java", "-jar", "Evaluation.jar", "submissionConf.xml"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    out = out.split("Grade :=>>")
-    out2 = re.split('\n', out[0])
-    out1 = re.split('\n', out[1])
+    out = out.split("Grade :=>>","Comment :=>>")
+    print out
+    out2 = out[0].split('\n')
+    out1 = out[1].split('\n')
     correct = True
-    message = out2[0]
+    message = "\n".join(out2)
     score=float(out1[0])/100
     result.update({"score": score, "msg": message})
     result = process_result(result)
@@ -61,7 +61,6 @@ def get_info(body_content):
     json_object = json.loads(json_object["xqueue_body"])
     problem_name = json.loads(json_object["grader_payload"])
     student_response = json_object["student_response"]
-    print problem_name, student_response
     return problem_name, student_response
 
 if __name__ == "__main__":

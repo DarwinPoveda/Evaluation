@@ -35,7 +35,7 @@
          <description>TestingSubmodule</description>
          <program-parameters>Corrector.java</program-parameters>
          <factor>50.00</factor>
-         <action-file-list>CorrectorDeber1.java,CorrectorDeber1</action-file-list>
+         <action-file-list>Corrector.java,Corrector</action-file-list>
          <executed>no</executed>
          <state>failed</state>
          <grade>0.0</grade>
