@@ -31,8 +31,8 @@ def grade(problem_name, student_response):
     out = out.split("Grade :=>>")
     out2 = out[0].split('\n')
     out1 = out[1].split('\n')
-    #message = "".join(out2).encode('utf-8')
-    message=out[0].encode('utf-8')
+    message = "".join(out2).encode('utf-8')
+    #message=out[0].encode('utf-8')
     score = float(out1[0])/100
     print message, score 
     result.update({"score": score, "msg": message})
@@ -40,9 +40,12 @@ def grade(problem_name, student_response):
 
     #remove student's program from disk
     #for i in range(len(program)-1):
-    #    program_name = "{0}".format(problem_name["problem_name"])
+    #    program_name = "/edx/Evaluation/{0}".format(problem_name["problem_name"])
     #    os.remove(program_name)
-    #return result
+    os.remove("/edx/Evaluation/Corrector.java")
+    os.remove("/edx/Evaluation/Corrector.class")
+    os.remove("/edx/Evaluation/submissionConf.xml")
+    return result
 
 def process_result(result):
     score = result["score"]
