@@ -32,12 +32,10 @@ def grade(problem_name, student_response):
     p = subprocess.Popen(["java", "-jar", "Evaluation.jar", "submissionConf.xml"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.split("Grade :=>>")
-    print out
     #Inicializate the parameters for the result
     message = out[0]
     out1 = out[1].split('\n')
     score = float(out1[0])/100
-    print message, score
     result.update({"score": score, "msg": message})
     result = process_result(result)
     #remove student's program from disk
