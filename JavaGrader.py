@@ -22,7 +22,7 @@ def grade(problem_name, student_response):
     #Write all the java files
     problem_names = problem_name["problem_name"].split(",")
     for i in range(len(program)-1):
-        program_name = "/edx/Evaluation/{0}".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}.java".format(problem_names[i])
         program_code = program[i+1].encode('utf-8')
 	source_file = open(program_name, 'w')
         source_file.write(program_code)
@@ -32,15 +32,21 @@ def grade(problem_name, student_response):
     p = subprocess.Popen(["java", "-jar", "Evaluation.jar", "submissionConf.xml"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.split("Grade :=>>")
-    out1 = out[1].split('\n')
-    #Inicializate the parameters for the result
-    message = out[0]
-    score = float(out1[0])/100
+    if len(out) > 0 :  
+        out2 = out[0].split('\n')
+        out1 = out[1].split('\n')
+    	#Inicializate the parameters for the result
+        message = "/".join(out2)
+        score = float(out1[0])/100
+    else:
+        score=0
+        message="Error, Falla en el calificador"
     result.update({"score": score, "msg": message})
     result = process_result(result)
     #remove student's program from disk
     for i in range(len(program)-1):
-        program_name = "/edx/Evaluation/{0}".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}.java".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}.class".format(problem_names[i])
         os.remove(program_name)
     return result
 
@@ -63,7 +69,6 @@ def get_info(body_content):
     json_object = json.loads(json_object["xqueue_body"])
     problem_name = json.loads(json_object["grader_payload"])
     student_response = json_object["student_response"]
-    print json_object
     return problem_name, student_response
 
 if __name__ == "__main__":
