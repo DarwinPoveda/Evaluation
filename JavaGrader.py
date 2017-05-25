@@ -41,6 +41,7 @@ def grade(problem_name, student_response):
     #remove student's program from disk
     for i in range(len(program)-1):
         program_name = "/edx/Evaluation/{0}.java".format(problem_names[i])
+	os.remove(program_name)
         program_name = "/edx/Evaluation/{0}.class".format(problem_names[i])
         os.remove(program_name)
     return result
