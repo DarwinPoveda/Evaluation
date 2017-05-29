@@ -22,7 +22,7 @@ def grade(problem_name, student_response):
     #Write all the java files
     problem_names = problem_name["problem_name"].split(",")
     for i in range(len(program)-1):
-        program_name = "/edx/Evaluation/{0}/{1}".format(problem_names[0], problem_names[i+1])
+        program_name = "/edx/Evaluation/{0}/{1}.java".format(problem_names[0], problem_names[i+1])
         program_code = program[i+1].encode('utf-8')
 	source_file = open(program_name, 'w')
         source_file.write(program_code)
@@ -41,9 +41,9 @@ def grade(problem_name, student_response):
     result = process_result(result)
     #remove student's program from disk
     for i in range(len(program)-1):
-        program_name = "/edx/Evaluation/{0}.java".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}/{1}.java".format(problem_names[0], problem_names[i+1])
 	os.remove(program_name)
-        program_name = "/edx/Evaluation/{0}.class".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}/{1}.class".format(problem_names[0], problem_names[i+1])
         os.remove(program_name)
     return result
 
