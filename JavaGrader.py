@@ -22,14 +22,15 @@ def grade(problem_name, student_response):
     #Write all the java files
     problem_names = problem_name["problem_name"].split(",")
     for i in range(len(program)-1):
-        program_name = "/edx/Evaluation/{0}.java".format(problem_names[i])
+        program_name = "/edx/Evaluation/{0}/{1}".format(problem_names[0], problem_names[i+1])
         program_code = program[i+1].encode('utf-8')
 	source_file = open(program_name, 'w')
         source_file.write(program_code)
         source_file.close()
     result = {}
     #Run the External Grader with the parameters in file submissionConf.xml
-    p = subprocess.Popen(["java", "-jar", "Evaluation.jar", "submissionConf.xml"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    submmission_name = "/edx/Evaluation/{0}/submissionConf.xml".format(problem_names[0])
+    p = subprocess.Popen(["java", "-jar", "Evaluation.jar", submmission_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.split("Grade :=>>")
     #Inicializate the parameters for the result

@@ -18,7 +18,7 @@ class HTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
 def grade(problem_name, student_response):
     #Write the file SubmissionConf.xml
-    program_name = "/edx/Evaluation/{0}".format(problem_name["problem_name"])
+    program_name = "/edx/Evaluation/{0}/{1}".format(problem_names[0], problem_names[1])
     program_code = student_response.encode('utf-8')
     source_file = open(program_name, 'w')
     source_file.write(program_code)
